@@ -1,4 +1,4 @@
-module.exports = {
+export const connectOption = {
     dialect: 'postgres',
     host: 'localhost',
     username: 'postgres',
