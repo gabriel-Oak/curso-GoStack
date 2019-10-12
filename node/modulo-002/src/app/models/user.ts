@@ -1,18 +1,18 @@
-import { Model, DataTypes } from 'sequelize';
-import sequelize from '../../config/database';
+import { Model, DataTypes, Sequelize } from 'sequelize';
 
 
+class User extends Model {
+    static load(sequelize: Sequelize) {
+        this.init({
+            name: DataTypes.STRING,
+            email: DataTypes.STRING,
+            password_hash: DataTypes.STRING,
+            provider: DataTypes.BOOLEAN,
+        }, {
+            sequelize,
+            modelName: 'User'
+        });
+    }
+}
 
-class User extends Model { }
-
-User.init({
-    name: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password_hash: DataTypes.STRING,
-    provider: DataTypes.BOOLEAN,
-  }, {
-    sequelize,
-    modelName: 'User'
-  }
-);
 export default User;

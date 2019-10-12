@@ -13,15 +13,4 @@ export const connectOption = {
     }
 }
 
-const sequelize = new Sequelize(
-    connectOption.database,
-    connectOption.username,
-    connectOption.password,
-    {
-        host: connectOption.host,
-        dialect: 'postgres',
-        define: connectOption.define
-    }
-);
-
-export default sequelize;
+export default connectOption;
