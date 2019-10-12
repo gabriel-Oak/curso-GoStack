@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import APP_ROUTES from './routes';
+import sequelize from './config/database';
 
 class App {
     public server: express.Application;
@@ -9,6 +10,7 @@ class App {
         this.server = express();
         this.middlewares();
         this.routes();
+        this.testConnection();
     }
 
     private middlewares(): void {
@@ -20,6 +22,16 @@ class App {
         APP_ROUTES.forEach(route => {
             this.server.use(route);
         });
+    }
+
+    private testConnection() {
+        sequelize.authenticate()
+            .then(() => {
+                console.log('Conectado com sucesso ao banco.');
+            })
+            .catch((err: any) => {
+                console.error('Não foi possivel conectar ao banco:', err);
+            });
     }
 }
 

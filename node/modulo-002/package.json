@@ -9,6 +9,7 @@
     "create-migration": "sequelize migrations:create"
   },
   "devDependencies": {
+    "@types/sequelize": "^4.28.5",
     "@typescript-eslint/eslint-plugin": "^2.3.3",
     "@typescript-eslint/parser": "^2.3.3",
     "eslint": "^6.5.1",
