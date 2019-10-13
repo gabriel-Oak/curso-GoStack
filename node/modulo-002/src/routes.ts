@@ -1,13 +1,9 @@
-import express, { Router } from 'express';
+import { Router } from 'express';
+import USER_ROUTES from './app/features/user/user-routes';
 
-const route = Router();
 
-route.get('/', (req, res) => {
-    return res.send('hello my frendi ' + req);
-});
-
-const APP_ROUTES: Array<express.Router> = [
-    route
+const APP_ROUTES: Array<Router> = [
+    USER_ROUTES
 ]
 
 export default APP_ROUTES;

@@ -1,6 +1,8 @@
 import { Sequelize } from 'sequelize';
 import MODELS, {Model} from '../app/models/';
-import connectOption from '../config/database';
+
+
+const connectOption = require('../config/database');
 
 class Database {
 

@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import APP_ROUTES from './routes';
-import sequelize from './config/database';
 
 import './database';
 class App {

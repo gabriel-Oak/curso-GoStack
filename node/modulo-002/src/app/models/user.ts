@@ -10,7 +10,7 @@ class User extends Model {
             provider: DataTypes.BOOLEAN,
         }, {
             sequelize,
-            modelName: 'User'
+            modelName: 'user'
         });
     }
 }
