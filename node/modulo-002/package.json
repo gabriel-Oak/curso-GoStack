@@ -9,6 +9,8 @@
     "create-migration": "sequelize migrations:create"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^8.3.4",
+    "@types/md5": "^2.1.33",
     "@types/sequelize": "^4.28.5",
     "@typescript-eslint/eslint-plugin": "^2.3.3",
     "@typescript-eslint/parser": "^2.3.3",
@@ -27,6 +29,8 @@
     "codelyzer": "^5.1.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "md5": "^2.2.1",
     "path": "^0.12.7",
     "pg": "^7.12.1",
     "pg-hstore": "^2.3.3",
