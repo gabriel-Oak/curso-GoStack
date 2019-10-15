@@ -1,10 +1,24 @@
+import * as Yup from 'yup';
 import jwt from 'jsonwebtoken';
 import { Request, Response } from "express";
-import User from "../../../models/user";
-import { keys } from '../../../../config/keys';
+import User from "../../models/user";
+import { keys } from '../../../config/keys';
 
 class SessionController {
     async store(req: Request, res: Response) {
+        const schema = Yup.object().shape({
+            email: Yup
+                .string()
+                .email()
+                .required(),
+            password: Yup
+                .string()
+                .required()
+        });
+
+        if (!schema.isValidSync(req.body)) {
+            return res.status(400).json({ message: 'Dados inválidos' });
+        }
         const { email, password } = req.body;
         const user: any = await User.findOne({ where: { email } });
 

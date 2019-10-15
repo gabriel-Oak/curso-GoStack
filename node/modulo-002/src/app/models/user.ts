@@ -1,6 +1,6 @@
 import { Model, DataTypes, Sequelize } from 'sequelize';
-import md5 from 'md5';
 import { keys } from '../../config/keys.expample';
+import bcrypt from 'bcrypt';
 
 class User extends Model {
     static load(sequelize: Sequelize) {
@@ -17,13 +17,13 @@ class User extends Model {
 
         this.addHook('beforeSave', async (user: any) => {
             if (user.password) {
-                user.password_hash = md5(user.password + keys.hash_key);
+                user.password_hash = await bcrypt.hash(user.password + keys.hash_key, 8);
             }
         });
     }
 
     public checkPassword(password: string, password_hash: string): boolean {
-        return md5(password + keys.hash_key) === password_hash;
+        return bcrypt.compareSync(password + keys.hash_key, password_hash);
     }
 }
 

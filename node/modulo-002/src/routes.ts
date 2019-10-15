@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import USER_ROUTES from './app/features/user/user-routes';
-import SESSION_ROUTES from './app/features/session/session-routes';
+import USER_ROUTES from './app/controllers/user/routes';
+import SESSION_ROUTES from './app/controllers/session/routes';
 
 
 const APP_ROUTES: Array<Router> = [
