@@ -1,24 +1,11 @@
-import * as Yup from 'yup';
 import User from "../../models/user"
 import { Response, Request } from "express"
+import UserScope from './scope';
 
 class UserController {
     async store(req: Request, res: Response) {
-        const schema = Yup.object().shape({
-            name: Yup
-                .string()
-                .required(),
-            email: Yup
-                .string()
-                .email()
-                .required(),
-            password: Yup
-                .string()
-                .required()
-                .min(6)
-        });
 
-        if (!schema.isValidSync(req.body)) {
+        if (!UserScope.store(req.body)) {
             return res.status(400).json({ message: 'Dados inválidos' });
         }
 
@@ -34,33 +21,12 @@ class UserController {
             email: user.email,
             provider: user.provider
         });
+
     }
 
     async update(req: Request, res: Response) {
-        const schema = Yup.object().shape({
-            name: Yup
-                .string()
-                .required(),
-            email: Yup
-                .string()
-                .email(),
-            oldPassword: Yup
-                .string()
-                .min(6),
-            password: Yup
-                .string()
-                .min(6)
-                .when('oldPassword', (oldPassword: string, field: any) =>
-                    oldPassword ? field.required() : field
-                ),
-            confirmPassword: Yup
-                .string()
-                .when('password', (password: string, field: any) =>
-                    password ? field.required().oneOf([Yup.ref('password')]) : field
-                )
-        });
 
-        if (!schema.isValidSync(req.body)) {
+        if (!UserScope.update(req.body)) {
             return res.status(400).json({ message: 'Dados inválidos' });
         }
 
@@ -88,6 +54,7 @@ class UserController {
             email: user.email,
             provider: user.provider
         });
+
     }
 }
 

@@ -2,3 +2,6 @@
 /node/modulo-001/node_modules
 
 /node/modulo-002/node_modules
+/node/modulo-002/yarn.lock
+/node/modulo-002/yarn-error.log
+/node/modulo-002/src/config/keys.ts
