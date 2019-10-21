@@ -1,9 +1,13 @@
 import { Router } from 'express';
-import USER_ROUTES from './app/controllers/user/routes';
-import SESSION_ROUTES from './app/controllers/session/routes';
+import USER_ROUTES from './app/core/user/routes';
+import SESSION_ROUTES from './app/core/session/routes';
+import FILES_ROUTES from './app/core/file/routes';
+import PROVIDERS_ROUTES from './app/core/provider/routes';
 
 
 const APP_ROUTES: Array<Router> = [
+    FILES_ROUTES,
+    PROVIDERS_ROUTES,
     SESSION_ROUTES,
     USER_ROUTES
 ]

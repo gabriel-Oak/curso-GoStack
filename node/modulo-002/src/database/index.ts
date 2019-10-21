@@ -1,5 +1,5 @@
 import { Sequelize } from 'sequelize';
-import MODELS, {Model} from '../app/models/';
+import MODELS, { Model } from '../app/models/';
 
 
 const connectOption = require('../config/database');
@@ -25,9 +25,14 @@ class Database {
     }
 
     init() {
-        MODELS.forEach( (model: Model) => {
+        MODELS.forEach((model: Model) => {
             model.load(this.connection);
-        })
+            model.associate && model.associate(this.connection.models);
+        });
+
+        MODELS.forEach((model: Model) => {
+            model.associate && model.associate(this.connection.models);
+        });
     }
 
     private testConnection() {

@@ -9,7 +9,7 @@ class User extends Model {
             email: DataTypes.STRING,
             password: DataTypes.VIRTUAL,
             password_hash: DataTypes.STRING,
-            provider: DataTypes.BOOLEAN,
+            provider: DataTypes.BOOLEAN
         }, {
             sequelize,
             modelName: 'user'
@@ -20,6 +20,10 @@ class User extends Model {
                 user.password_hash = await bcrypt.hash(user.password + keys.hash_key, 8);
             }
         });
+    }
+
+    static associate(models: any) {
+        this.hasMany(models.file, { foreignKey: 'user_id' });
     }
 
     public checkPassword(password: string, password_hash: string): boolean {
