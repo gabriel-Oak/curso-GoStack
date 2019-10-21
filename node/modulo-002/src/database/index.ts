@@ -27,7 +27,6 @@ class Database {
     init() {
         MODELS.forEach((model: Model) => {
             model.load(this.connection);
-            model.associate && model.associate(this.connection.models);
         });
 
         MODELS.forEach((model: Model) => {

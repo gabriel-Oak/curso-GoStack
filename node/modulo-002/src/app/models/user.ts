@@ -23,7 +23,7 @@ class User extends Model {
     }
 
     static associate(models: any) {
-        this.hasMany(models.file, { foreignKey: 'user_id' });
+        this.hasMany(models.file, { foreignKey: 'user_id', as: 'avatar' });
     }
 
     public checkPassword(password: string, password_hash: string): boolean {
