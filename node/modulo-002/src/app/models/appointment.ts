@@ -4,7 +4,7 @@ class Appointment extends Model {
     static load(sequelize: Sequelize) {
         this.init({
             date: DataTypes.DATE,
-            caceled_at: DataTypes.DATE
+            canceled_at: DataTypes.DATE
         }, {
             sequelize,
             modelName: 'appointment'

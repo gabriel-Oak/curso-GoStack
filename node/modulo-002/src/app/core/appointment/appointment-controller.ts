@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { startOfHour, parseISO, isBefore } from 'date-fns'
 import AppointmentScope from "./scope";
 import User from "../../models/user";
 import Appointment from "../../models/appointment";
@@ -20,10 +21,28 @@ class AppointmentController {
             });
         }
 
+        const hourStart = startOfHour(parseISO(date));
+
+        if (isBefore(hourStart, new Date())) {
+            return res.status(406).json({ message: 'A data do agendamento já passou' });
+        }
+
+        const checkAvailability = await Appointment.findOne({
+            where: {
+                provider_id,
+                canceled_at: null,
+                date: new Date(hourStart).toISOString()
+            },
+        });
+
+        if (checkAvailability) {
+            return res.status(406).json({ message: 'Você já tem um agendamento para este horario' });
+        }
+
         const appoitment = await Appointment.create({
             user_id: req.params.userId,
             provider_id,
-            date
+            date: hourStart
         });
 
 
