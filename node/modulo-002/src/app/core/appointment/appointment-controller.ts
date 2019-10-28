@@ -1,13 +1,17 @@
 import { Request, Response } from "express";
-import { startOfHour, parseISO, isBefore } from 'date-fns'
+import { startOfHour, parseISO, isBefore, endOfHour } from 'date-fns'
 import AppointmentScope from "./scope";
 import User from "../../models/user";
 import Appointment from "../../models/appointment";
 import File from "../../models/file";
+import { Op } from "sequelize";
 
 class AppointmentController {
 
     async index(req: Request, res: Response) {
+        const { page = 1 } = req.query;
+
+
         const appointments = await Appointment.findAll({
             where: {
                 user_id: req.params.userId,
@@ -15,6 +19,8 @@ class AppointmentController {
             },
             attributes: ['id', 'date'],
             order: ['date'],
+            limit: 20,
+            offset: (page - 1) * 20,
             include: [{
                 model: User,
                 as: 'provider',
@@ -48,25 +54,26 @@ class AppointmentController {
         }
 
         const hourStart = startOfHour(parseISO(date));
+        const hourEnd = endOfHour(parseISO(date));
 
         if (isBefore(hourStart, new Date())) {
             return res.status(406).json({ message: 'A data do agendamento já passou' });
         }
 
-        const checkAvailability: any[] = await Appointment.findAll({
+        const checkAvailability: any = await Appointment.findOne({
             where: {
                 provider_id,
-                canceled_at: null
+                canceled_at: null,
+                date: {
+                    [Op.between]: [
+                        hourStart,
+                        hourEnd
+                    ]
+                }
             },
         });
 
-        let invalid = checkAvailability.some(item => {
-            const itemHour = startOfHour(item.date);
-            if (String(itemHour) === String(hourStart)) { return true; }
-            return false;
-        });
-
-        if (invalid) {
+        if (checkAvailability) {
             return res.status(406).json({
                 message: 'Você já tem um agendamento para este horario'
             });
