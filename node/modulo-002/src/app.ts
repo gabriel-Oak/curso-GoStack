@@ -4,6 +4,8 @@ import path from 'path';
 import APP_ROUTES from './routes';
 
 import './database';
+
+
 class App {
     public server: express.Application;
 

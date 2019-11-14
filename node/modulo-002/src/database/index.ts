@@ -11,21 +11,21 @@ class Database {
     mongoConnection: Mongoose;
 
     constructor() {
+        this.mongoConnection = mongoose;
         this.connection = new Sequelize(
             connectOption.database,
             connectOption.username,
             connectOption.password,
-            {
-                host: connectOption.host,
-                dialect: 'postgres',
-                define: connectOption.define
-            }
+            connectOption
         );
-        this.mongoConnection = mongoose;
 
+        const test = String(process.env.NODE_ENV).indexOf('test') !== -1
         this.init();
-        this.testConnection();
-        this.mongo();
+
+        if (!test) {
+            this.testConnection();
+            this.mongo();
+        }
     }
 
     private init() {
@@ -48,26 +48,28 @@ class Database {
             });
     }
 
-    async mongo() {
+    private mongo() {
         this.mongoConnection.connect(
             'mongodb://gobarber:gobarber1@ds018248.mlab.com:18248/nstr',
-            { useNewUrlParser: true, useFindAndModify: true }
+            { useNewUrlParser: true, useFindAndModify: true, useUnifiedTopology: true }
         );
 
-        this.mongoConnection.connection.on('connected', () => {
+        const { connection } = this.mongoConnection;
+
+        connection.on('connected', () => {
             console.log('MongoDB conectado com sucesso!');
         });
 
-        this.mongoConnection.connection.on('disconnected', () => {
+        connection.on('disconnected', () => {
             console.log('MongoDB desconectado!');
         });
 
-        this.mongoConnection.connection.on('error', e => {
+        connection.on('error', e => {
             console.log('MongoDB ERRO: ' + e);
         });
 
         process.on('SIGINT', () => {
-            this.mongoConnection.connection.close(() => {
+            connection.close(() => {
                 console.log('MongoDB desconectado pelo término da aplicação');
                 process.exit(0);
             });

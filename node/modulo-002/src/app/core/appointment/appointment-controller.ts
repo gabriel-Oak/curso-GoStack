@@ -1,10 +1,18 @@
 import { Request, Response } from "express";
-import { startOfHour, parseISO, isBefore, endOfHour } from 'date-fns'
+import {
+    startOfHour,
+    parseISO,
+    isBefore,
+    endOfHour,
+    format,
+} from 'date-fns'
+import pt from 'date-fns/locale/pt';
 import AppointmentScope from "./scope";
 import User from "../../models/user";
 import Appointment from "../../models/appointment";
 import File from "../../models/file";
 import { Op } from "sequelize";
+import Notification from '../../schemas/notifications';
 
 class AppointmentController {
 
@@ -85,6 +93,17 @@ class AppointmentController {
             date
         });
 
+        const user: any = await User.findByPk(req.params.userId);
+        const newDate = format(
+            parseISO(date),
+            "'dia' dd 'de' MMMM', às' H:mm'h'",
+            { locale: pt }
+        )
+
+        Notification.create({
+            content: `Novo agendamento de ${user.name} para ${newDate}`,
+            user: provider_id
+        });
 
         return res.json(appoitment);
     }
