@@ -33,4 +33,39 @@ describe('Authentication', () => {
         expect(response.body.user.email).toBe('teste@teste.com');
     });
 
+    it('Shold miss login the password', async () => {
+        const response: any = await request(app)
+            .post('/session')
+            .send({
+                email: 'teste@teste.com',
+                password: '1235'
+            });
+
+        expect(response.status).toBe(401);
+        expect(response.body.message).toBe('Senha incorreta');
+    });
+
+    it('Shold bad request', async () => {
+        const response: any = await request(app)
+            .post('/session')
+            .send({
+                email: 'teste@teste.com'
+            });
+
+        expect(response.status).toBe(400);
+        expect(response.body.message).toBe('Dados inválidos');
+    });
+
+    it('Shold bad request', async () => {
+        const response: any = await request(app)
+            .post('/session')
+            .send({
+                email: 'teste@erro.com',
+                password: '1234'
+            });
+
+        expect(response.status).toBe(400);
+        expect(response.body.message).toBe('Usuário não encontrado');
+    });
+
 });
