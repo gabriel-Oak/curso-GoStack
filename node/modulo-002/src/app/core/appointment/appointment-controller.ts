@@ -5,6 +5,7 @@ import {
     isBefore,
     endOfHour,
     format,
+    subHours
 } from 'date-fns'
 import pt from 'date-fns/locale/pt';
 import AppointmentScope from "./scope";
@@ -107,6 +108,33 @@ class AppointmentController {
 
         return res.json(appoitment);
     }
+
+    async delete(req: Request, res: Response) {
+        const {user_id, id} = req.params;
+
+        const appointment: any = Appointment.findByPk(id);
+
+        if(appointment.user_id !== user_id) {
+            return res.status(401).json({
+                message: 'Você não tem permissão para cancelar esse agendamento'
+            });
+        }
+
+        const dateSub = subHours(appointment.date, 2);
+
+        if (isBefore(dateSub, new Date())) {
+            return res.status(401).json({
+                message: 'Só é permitido cancelar agendamentos com mais de duas horas de atecedência'
+            });
+        }
+
+        appointment.canceled_at = new Date();
+
+        await appointment.save();
+
+        return res.json(appointment);
+    }
+
 }
 
 export default new AppointmentController();
