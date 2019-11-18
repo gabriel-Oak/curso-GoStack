@@ -1,5 +1,5 @@
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app.ts
 FN:1,_interopRequireDefault
 FN:12,(anonymous_1)
 FN:18,(anonymous_2)
@@ -36,7 +36,7 @@ BRF:4
 BRH:4
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\routes.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\routes.ts
 FN:1,_interopRequireDefault
 FNF:1
 FNH:1
@@ -61,17 +61,18 @@ BRF:4
 BRH:3
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app\core\appointment\appointment-controller.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app\core\appointment\appointment-controller.ts
 FN:1,_interopRequireDefault
-FN:19,(anonymous_1)
-FN:48,(anonymous_2)
-FNF:3
+FN:20,(anonymous_1)
+FN:49,(anonymous_2)
+FN:112,(anonymous_3)
+FNF:4
 FNH:1
 FNDA:6,_interopRequireDefault
 FNDA:0,(anonymous_1)
 FNDA:0,(anonymous_2)
+FNDA:0,(anonymous_3)
 DA:1,6
-DA:8,1
 DA:9,1
 DA:10,1
 DA:11,1
@@ -79,48 +80,63 @@ DA:12,1
 DA:13,1
 DA:14,1
 DA:15,1
-DA:20,0
-DA:23,0
-DA:45,0
-DA:49,0
+DA:16,1
+DA:21,0
+DA:24,0
+DA:46,0
 DA:50,0
-DA:53,0
+DA:51,0
 DA:54,0
-DA:58,0
+DA:55,0
 DA:59,0
-DA:64,0
+DA:60,0
 DA:65,0
-DA:67,0
+DA:66,0
 DA:68,0
-DA:71,0
-DA:84,0
+DA:69,0
+DA:72,0
 DA:85,0
-DA:90,0
-DA:96,0
+DA:86,0
+DA:91,0
 DA:97,0
-DA:103,0
-DA:108,0
-DA:112,1
-LF:31
+DA:98,0
+DA:104,0
+DA:109,0
+DA:113,0
+DA:115,0
+DA:117,0
+DA:118,0
+DA:123,0
+DA:125,0
+DA:126,0
+DA:131,0
+DA:133,0
+DA:135,0
+DA:140,1
+LF:41
 LH:10
 BRDA:1,0,0,5
 BRDA:1,0,1,1
 BRDA:1,1,0,6
 BRDA:1,1,1,6
-BRDA:20,2,0,0
-BRDA:49,3,0,0
-BRDA:49,3,1,0
-BRDA:58,4,0,0
-BRDA:58,4,1,0
-BRDA:67,5,0,0
-BRDA:67,5,1,0
-BRDA:84,6,0,0
-BRDA:84,6,1,0
-BRF:13
+BRDA:21,2,0,0
+BRDA:50,3,0,0
+BRDA:50,3,1,0
+BRDA:59,4,0,0
+BRDA:59,4,1,0
+BRDA:68,5,0,0
+BRDA:68,5,1,0
+BRDA:85,6,0,0
+BRDA:85,6,1,0
+BRDA:117,7,0,0
+BRDA:117,7,1,0
+BRDA:125,8,0,0
+BRDA:125,8,1,0
+BRF:17
 BRH:4
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app\core\appointment\routes.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app\core\appointment\routes.ts
 FN:1,_interopRequireDefault
 FNF:1
 FNH:1
@@ -131,9 +147,10 @@ DA:3,1
 DA:5,1
 DA:7,1
 DA:8,1
-DA:10,1
-LF:7
-LH:7
+DA:9,1
+DA:11,1
+LF:8
+LH:8
 BRDA:1,0,0,2
 BRDA:1,0,1,0
 BRDA:1,1,0,2
@@ -142,7 +159,7 @@ BRF:4
 BRH:3
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app\core\appointment\scope.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app\core\appointment\scope.ts
 FN:1,_interopRequireWildcard
 FN:10,(anonymous_1)
 FNF:2
@@ -168,7 +185,7 @@ BRF:8
 BRH:3
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app\core\file\file-controller.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app\core\file\file-controller.ts
 FN:1,_interopRequireDefault
 FN:5,(anonymous_1)
 FNF:2
@@ -191,7 +208,7 @@ BRF:4
 BRH:3
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app\core\file\routes.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app\core\file\routes.ts
 FN:1,_interopRequireDefault
 FNF:1
 FNH:1
@@ -215,13 +232,15 @@ BRF:4
 BRH:4
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app\core\notification\notification-controller.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app\core\notification\notification-controller.ts
 FN:1,_interopRequireDefault
 FN:6,(anonymous_1)
-FNF:2
+FN:23,(anonymous_2)
+FNF:3
 FNH:1
 FNDA:2,_interopRequireDefault
 FNDA:0,(anonymous_1)
+FNDA:0,(anonymous_2)
 DA:1,2
 DA:3,1
 DA:7,0
@@ -230,8 +249,10 @@ DA:13,0
 DA:14,0
 DA:19,0
 DA:20,0
-DA:24,1
-LF:9
+DA:25,0
+DA:31,0
+DA:35,1
+LF:11
 LH:3
 BRDA:1,0,0,2
 BRDA:1,0,1,0
@@ -243,7 +264,7 @@ BRF:6
 BRH:3
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app\core\notification\routes.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app\core\notification\routes.ts
 FN:1,_interopRequireDefault
 FNF:1
 FNH:1
@@ -253,9 +274,10 @@ DA:2,1
 DA:3,1
 DA:5,1
 DA:7,1
-DA:9,1
-LF:6
-LH:6
+DA:8,1
+DA:10,1
+LF:7
+LH:7
 BRDA:1,0,0,2
 BRDA:1,0,1,0
 BRDA:1,1,0,2
@@ -264,7 +286,7 @@ BRF:4
 BRH:3
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app\core\provider\provider-controller.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app\core\provider\provider-controller.ts
 FN:1,_interopRequireDefault
 FN:7,(anonymous_1)
 FNF:2
@@ -288,7 +310,7 @@ BRF:4
 BRH:3
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app\core\provider\routes.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app\core\provider\routes.ts
 FN:1,_interopRequireDefault
 FNF:1
 FNH:1
@@ -308,7 +330,7 @@ BRF:4
 BRH:3
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app\core\schedule\routes.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app\core\schedule\routes.ts
 FN:1,_interopRequireDefault
 FNF:1
 FNH:1
@@ -329,7 +351,7 @@ BRF:4
 BRH:3
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app\core\schedule\schedule-controller.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app\core\schedule\schedule-controller.ts
 FN:1,_interopRequireDefault
 FN:8,(anonymous_1)
 FNF:2
@@ -361,7 +383,7 @@ BRF:6
 BRH:3
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app\core\session\routes.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app\core\session\routes.ts
 FN:1,_interopRequireDefault
 FNF:1
 FNH:1
@@ -381,7 +403,7 @@ BRF:4
 BRH:3
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app\core\session\session-controller.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app\core\session\session-controller.ts
 FN:1,_interopRequireWildcard
 FN:1,_interopRequireDefault
 FN:8,(anonymous_2)
@@ -430,7 +452,7 @@ BRF:18
 BRH:13
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app\core\user\routes.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app\core\user\routes.ts
 FN:1,_interopRequireDefault
 FNF:1
 FNH:1
@@ -452,7 +474,7 @@ BRF:4
 BRH:3
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app\core\user\scope.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app\core\user\scope.ts
 FN:1,_interopRequireWildcard
 FN:12,(anonymous_1)
 FN:22,(anonymous_2)
@@ -492,7 +514,7 @@ BRF:12
 BRH:3
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app\core\user\user-controller.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app\core\user\user-controller.ts
 FN:1,_interopRequireDefault
 FN:6,(anonymous_1)
 FN:27,(anonymous_2)
@@ -550,7 +572,7 @@ BRF:20
 BRH:3
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app\middlewares\auth.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app\middlewares\auth.ts
 FN:1,_interopRequireDefault
 FN:6,(anonymous_1)
 FNF:2
@@ -583,7 +605,7 @@ BRF:6
 BRH:3
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app\models\appointment.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app\models\appointment.ts
 FN:4,(anonymous_0)
 FN:14,(anonymous_1)
 FNF:2
@@ -601,7 +623,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app\models\file.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app\models\file.ts
 FN:4,(anonymous_0)
 FNF:1
 FNH:1
@@ -615,7 +637,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app\models\index.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app\models\index.ts
 FN:1,_interopRequireDefault
 FNF:1
 FNH:1
@@ -638,7 +660,7 @@ BRF:4
 BRH:3
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app\models\user.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app\models\user.ts
 FN:1,_interopRequireDefault
 FN:6,(anonymous_1)
 FN:18,(anonymous_2)
@@ -673,7 +695,7 @@ BRF:6
 BRH:4
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\app\schemas\notifications.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\app\schemas\notifications.ts
 FN:1,_interopRequireDefault
 FNF:1
 FNH:1
@@ -691,7 +713,7 @@ BRF:4
 BRH:3
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\config\database.js
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\config\database.js
 FNF:0
 FNH:0
 DA:1,1
@@ -705,7 +727,7 @@ BRF:2
 BRH:1
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\config\keys.expample.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\config\keys.expample.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -716,7 +738,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\config\keys.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\config\keys.ts
 FNF:0
 FNH:0
 DA:1,1
@@ -727,7 +749,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\config\multer.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\config\multer.ts
 FN:1,_interopRequireDefault
 FN:9,(anonymous_1)
 FN:10,(anonymous_2)
@@ -755,7 +777,7 @@ BRF:6
 BRH:3
 end_of_record
 TN:
-SF:C:\Users\gabri\Projetos\curso-GoStack\node\modulo-002\src\database\index.ts
+SF:C:\Users\Gabriel Carvalho\Projetos\curso-node-react\node\modulo-002\src\database\index.ts
 FN:1,_interopRequireDefault
 FN:13,(anonymous_1)
 FN:31,(anonymous_2)

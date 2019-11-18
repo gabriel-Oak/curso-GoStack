@@ -19,7 +19,7 @@ class Database {
             connectOption
         );
 
-        const test = String(process.env.NODE_ENV).indexOf('test') !== -1
+        const test = process.env.NODE_ENV === 'test'
         this.init();
 
         if (!test) {

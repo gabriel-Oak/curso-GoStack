@@ -14,6 +14,7 @@ import Appointment from "../../models/appointment";
 import File from "../../models/file";
 import { Op } from "sequelize";
 import Notification from '../../schemas/notifications';
+import Mailer from '../../lib/mailer';
 
 class AppointmentController {
 
@@ -110,11 +111,19 @@ class AppointmentController {
     }
 
     async delete(req: Request, res: Response) {
-        const {user_id, id} = req.params;
+        const { userId, id } = req.params;
 
-        const appointment: any = Appointment.findByPk(id);
+        const appointment: any = await Appointment.findByPk(id, {
+            include: [
+                {
+                    model: User,
+                    as: 'provider',
+                    attributes: ['name', 'email']
+                }
+            ]
+        });
 
-        if(appointment.user_id !== user_id) {
+        if (appointment.user_id !== userId) {
             return res.status(401).json({
                 message: 'Você não tem permissão para cancelar esse agendamento'
             });
@@ -131,6 +140,12 @@ class AppointmentController {
         appointment.canceled_at = new Date();
 
         await appointment.save();
+
+        await Mailer.sendMail({
+            to: `${appointment.provider.name} <${appointment.provider.email}>`,
+            subject: 'Agendamento cancelado',
+            text: 'Você tem um novo cancelamento'
+        });
 
         return res.json(appointment);
     }

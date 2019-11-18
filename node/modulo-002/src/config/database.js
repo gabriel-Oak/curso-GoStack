@@ -1,5 +1,5 @@
 require('dotenv').config({
-    path: process.env.NODE_ENV.indexOf('test') !== -1 ? '.env.test' : '.env'
+    path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env'
 });
 
 // ElefantSQL
