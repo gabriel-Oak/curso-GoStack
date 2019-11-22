@@ -3,7 +3,7 @@ import { pt } from 'date-fns/locale';
 import Mailer from "../lib/mailer";
 
 class CancellMail {
-    public get key() {
+    public get key(): string {
         return 'CancellMail';
     }
 
