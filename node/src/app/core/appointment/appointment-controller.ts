@@ -14,7 +14,8 @@ import Appointment from "../../models/appointment";
 import File from "../../models/file";
 import { Op } from "sequelize";
 import Notification from '../../schemas/notifications';
-import Mailer from '../../lib/mailer';
+import Queue from '../../lib/queue';
+import CancellMail from '../../jobs/cancel-email';
 
 class AppointmentController {
 
@@ -146,19 +147,8 @@ class AppointmentController {
 
         await appointment.save();
 
-        await Mailer.sendMail({
-            to: `${appointment.provider.name} <${appointment.provider.email}>`,
-            subject: 'Agendamento cancelado',
-            template: 'cancelation',
-            context: {
-                provider: appointment.provider.name,
-                user: appointment.user.name,
-                date: format(
-                    appointment.date,
-                    "'dia' dd 'de' MMMM', às' H:mm'h'",
-                    { locale: pt }
-                )
-            }
+        await Queue.add(CancellMail.key, {
+            appointment
         });
 
         return res.json(appointment);
