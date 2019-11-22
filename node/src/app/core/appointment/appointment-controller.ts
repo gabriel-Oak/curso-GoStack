@@ -14,7 +14,8 @@ import Appointment from "../../models/appointment";
 import File from "../../models/file";
 import { Op } from "sequelize";
 import Notification from '../../schemas/notifications';
-import Mailer from '../../lib/mailer';
+import Queue from '../../lib/queue';
+import CancellMail from '../../jobs/cancel-email';
 
 class AppointmentController {
 
@@ -100,7 +101,7 @@ class AppointmentController {
             parseISO(date),
             "'dia' dd 'de' MMMM', às' H:mm'h'",
             { locale: pt }
-        )
+        );
 
         Notification.create({
             content: `Novo agendamento de ${user.name} para ${newDate}`,
@@ -119,6 +120,11 @@ class AppointmentController {
                     model: User,
                     as: 'provider',
                     attributes: ['name', 'email']
+                },
+                {
+                    model: User,
+                    as: 'user',
+                    attributes: ['name']
                 }
             ]
         });
@@ -141,10 +147,8 @@ class AppointmentController {
 
         await appointment.save();
 
-        await Mailer.sendMail({
-            to: `${appointment.provider.name} <${appointment.provider.email}>`,
-            subject: 'Agendamento cancelado',
-            text: 'Você tem um novo cancelamento'
+        await Queue.add(CancellMail.key, {
+            appointment
         });
 
         return res.json(appointment);
