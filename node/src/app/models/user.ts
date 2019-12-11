@@ -20,6 +20,16 @@ class User extends Model {
                 user.password_hash = await bcrypt.hash(user.password + keys.hash_key, 8);
             }
         });
+
+        this.addHook('afterFind', async (users: any[]) => {
+            users.forEach(user => {
+                user.dataValues.avatar.forEach((file: any) => {
+                    const { path } = file.dataValues;
+                    file.dataValues.url = `${process.env.ROOT_URL}/files/${path}`
+                });
+
+            });
+        });
     }
 
     static associate(models: any) {
