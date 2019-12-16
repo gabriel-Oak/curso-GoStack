@@ -1,6 +1,7 @@
 import User from "../../models/user"
 import { Response, Request } from "express"
 import UserScope from './scope';
+import File from "../../models/file";
 
 class UserController {
     async store(req: Request, res: Response) {
@@ -46,13 +47,22 @@ class UserController {
             return res.status(401).json({ message: 'Senha incorreta' });
         }
 
-        user = await user.update(req.body);
+        user  = await User.findByPk(userId, {
+            include: [
+                {
+                    model: File,
+                    as: 'avatar',
+                    attributes: ['name', 'path'],
+                    order: ['created_at']
+                }
+            ]
+        });
 
         return res.json({
             id: userId,
             name: user.name,
             email: user.email,
-            provider: user.provider
+            avatar: user.avatar
         });
 
     }
