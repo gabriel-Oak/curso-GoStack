@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import { Request, Response } from "express";
 import User from "../../models/user";
 import { keys } from '../../../config/keys';
+import File from '../../models/file';
 
 class SessionController {
     async store(req: Request, res: Response) {
@@ -20,7 +21,17 @@ class SessionController {
             return res.status(400).json({ message: 'Dados inválidos' });
         }
         const { email, password } = req.body;
-        const user: any = await User.findOne({ where: { email } });
+        const user: any = await User.findOne({
+            where: { email },
+            include: [
+                {
+                    model: File,
+                    as: 'avatar',
+                    attributes: ['name', 'path'],
+                    order: ['created_at']
+                }
+            ]
+        });
 
         if (!user) {
             return res.status(400).json({ message: 'Usuário não encontrado' });
