@@ -11,12 +11,10 @@ import {
   SignLink,
   SignLinkText
 } from './styles';
-import { singIn } from './thunks';
-import { connect } from 'react-redux';
-import hooks from './hooks';
+import { singInHooks } from './hooks';
 
 const SingIn = ({ navigation}) => {
-  const { email, password, handleSubmit, loading } = hooks();
+  const { email, password, handleSubmit, loading } = singInHooks();
   const passwordRef = useRef();
 
   return (
@@ -68,10 +66,4 @@ const SingIn = ({ navigation}) => {
   );
 }
 
-const mapStateToProps = store => store.singInReducer;
-
-const mapDispatchToProps = {
-  singIn
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SingIn);
+export default SingIn;

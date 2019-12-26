@@ -11,14 +11,17 @@ import {
   SignLink,
   SignLinkText
 } from './styles';
+import { singUpHooks } from './hooks';
 
-const SingUp = ({ navigation }) => {
-  const emailRef = useRef();
-  const passwordRef = useRef();
-
-  const handleSubmit = () => {
-
-  }
+const SingUp = props => {
+  const {
+    name,
+    email,
+    password,
+    loading,
+    handleSubmit,
+    navigation
+  } = singUpHooks(props);
 
   return (
     <Background>
@@ -32,9 +35,7 @@ const SingUp = ({ navigation }) => {
             autoCorrect={false}
             placeholder='Nome completo'
             returnKeyType='next'
-            onSubmitEditing={() => {
-              emailRef.current.focus();
-            }}
+            {...name}
           />
 
           <FormInput
@@ -43,26 +44,24 @@ const SingUp = ({ navigation }) => {
             autoCorrect={false}
             autoCapitalize='none'
             placeholder='Digite seu e-mail'
-            ref={emailRef}
             returnKeyType='next'
-            onSubmitEditing={() => {
-              passwordRef.current.focus();
-            }}
+            {...email}
           />
 
           <FormInput
             icon='lock-outline'
             secureTextEntry
             placeholder='Sua senha super secreta'
-            ref={passwordRef}
             returnKeyType='send'
-            onSubmitEditing={handleSubmit}
+            {...password}
           />
 
           <SubmitButton
             onPress={handleSubmit}
+            loading={loading}
+            disabled={loading}
           >
-            Acessar
+            Registrar
           </SubmitButton>
         </Form>
 
