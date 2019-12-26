@@ -1,18 +1,68 @@
-import React from 'react';
-import { Text } from 'react-native';
+import React, { useRef } from 'react';
+import { Image } from 'react-native';
 
 import Background from '../../shared/components/Background';
-import Input from '../../shared/components/Input';
-import Button from '../../shared/components/Button';
+import logo from '~/shared/assets/logo.png';
+import {
+  Container,
+  Form,
+  FormInput,
+  SubmitButton,
+  SignLink,
+  SignLinkText
+} from './styles';
 
-// import { Container } from './styles';
+const SingIn = ({ navigation }) => {
+  const passwordRef = useRef();
 
-const SingIn = () => {
+  const handleSubmit = () => {
+
+  }
+
   return (
     <Background>
-      <Text>SingIn</Text>
-      <Input icon='home' placeholder='Digite algo' />
-      <Button>Ola</Button>
+      <Container>
+
+        <Image source={logo} />
+
+        <Form>
+          <FormInput
+            icon='mail-outline'
+            keyboardType='email-address'
+            autoCorrect={false}
+            autoCapitalize='none'
+            placeholder='Digite seu e-mail'
+            returnKeyType='next'
+            onSubmitEditing={() => {
+              passwordRef.current.focus();
+            }}
+          />
+
+          <FormInput
+            icon='lock-outline'
+            secureTextEntry
+            placeholder='Sua senha super secreta'
+            ref={passwordRef}
+            returnKeyType='send'
+            onSubmitEditing={handleSubmit}
+          />
+
+          <SubmitButton
+            onPress={handleSubmit}
+          >
+            Acessar
+          </SubmitButton>
+        </Form>
+
+        <SignLink onPress={() => {
+          console.log(navigation);
+
+          navigation.navigate('SingUp');
+        }}>
+          <SignLinkText>Criar conta gratuita</SignLinkText>
+        </SignLink>
+
+      </Container>
     </Background>
   );
 }

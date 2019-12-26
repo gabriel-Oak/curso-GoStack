@@ -7,12 +7,10 @@ import SingUp from "./pages/SingUp";
 const Routes = createAppContainer(
   createSwitchNavigator({
     SingIn: {
-      screen: SingIn,
-      path: 'singin'
+      screen: SingIn
     },
     SingUp: {
-      screen: SingUp,
-      path: 'singup'
+      screen: SingUp
     }
   })
 );
