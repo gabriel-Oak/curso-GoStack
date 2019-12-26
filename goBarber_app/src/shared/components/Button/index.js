@@ -13,7 +13,7 @@ const Button = ({ children, loading, ...rest }) => {
           : (
             typeof children === 'string'
               ? <Text>{children}</Text>
-              : {...children}
+              : { ...children }
           )
       }
     </Container>

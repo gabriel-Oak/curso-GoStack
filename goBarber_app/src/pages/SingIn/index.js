@@ -11,13 +11,13 @@ import {
   SignLink,
   SignLinkText
 } from './styles';
+import { singIn } from './thunks';
+import { connect } from 'react-redux';
+import hooks from './hooks';
 
-const SingIn = ({ navigation }) => {
+const SingIn = ({ navigation}) => {
+  const { email, password, handleSubmit, loading } = hooks();
   const passwordRef = useRef();
-
-  const handleSubmit = () => {
-
-  }
 
   return (
     <Background>
@@ -33,9 +33,7 @@ const SingIn = ({ navigation }) => {
             autoCapitalize='none'
             placeholder='Digite seu e-mail'
             returnKeyType='next'
-            onSubmitEditing={() => {
-              passwordRef.current.focus();
-            }}
+            {...email}
           />
 
           <FormInput
@@ -45,20 +43,23 @@ const SingIn = ({ navigation }) => {
             ref={passwordRef}
             returnKeyType='send'
             onSubmitEditing={handleSubmit}
+            {...password}
           />
 
           <SubmitButton
             onPress={handleSubmit}
+            loading={loading}
+            disabled={loading}
           >
             Acessar
           </SubmitButton>
         </Form>
 
-        <SignLink onPress={() => {
-          console.log(navigation);
-
-          navigation.navigate('SingUp');
-        }}>
+        <SignLink
+          onPress={() => {
+            navigation.navigate('SingUp');
+          }}
+        >
           <SignLinkText>Criar conta gratuita</SignLinkText>
         </SignLink>
 
@@ -67,4 +68,10 @@ const SingIn = ({ navigation }) => {
   );
 }
 
-export default SingIn;
+const mapStateToProps = store => store.singInReducer;
+
+const mapDispatchToProps = {
+  singIn
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SingIn);

@@ -21,7 +21,11 @@ class User extends Model {
             }
         });
 
-        this.addHook('afterFind', async (users: any[]) => {
+        this.addHook('afterFind', (users: any[] | null) => {
+            if (!users || !users.length) {
+                return;
+            }
+
             users.forEach(user => {
                 user.dataValues.avatar.forEach((file: any) => {
                     const { path } = file.dataValues;
