@@ -24,8 +24,6 @@ class Appointment extends Model {
                 if (item.dataValues.provider.avatar) {
                     item.dataValues.provider.avatar.forEach((avatar: any) => {
                         const { path } = avatar.dataValues;
-                        console.log(process.env);
-
                         avatar.dataValues.url = `${process.env.ROOT_URL}/files/${path}`
                     });
                 }

@@ -35,12 +35,15 @@ export const DashboardHooks = () => {
 
   const cancelAppointment = async id => {
     try {
-      await api.delete(`appointments/${id}`, {
+      console.log('data');
+
+      const { data } = await api.delete(`appointments/${id}`, {
         headers: {
           authorization: `baerer ${token}`
         }
       });
-
+      console.log(data);
+      
       setAppointments([
         appointments.map(appointment => {
           if (appointment.id !== id) {
