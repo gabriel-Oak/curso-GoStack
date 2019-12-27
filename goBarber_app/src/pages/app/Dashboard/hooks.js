@@ -16,8 +16,7 @@ export const DashboardHooks = () => {
           authorization: `baerer ${token}`
         }
       });
-      console.log(data);
-      
+
       setAppointments(data);
 
     } catch (e) {
@@ -32,12 +31,46 @@ export const DashboardHooks = () => {
         ]
       );
     }
-
   }
 
+  const cancelAppointment = async id => {
+    try {
+      await api.delete(`appointments/${id}`, {
+        headers: {
+          authorization: `baerer ${token}`
+        }
+      });
+
+      setAppointments([
+        appointments.map(appointment => {
+          if (appointment.id !== id) {
+            return appointment;
+          }
+          return {
+            ...appointment,
+            canceled_at: new Date(),
+            cancelable: false
+          }
+        })
+      ]);
+
+    } catch (e) {
+      Alert.alert(
+        'Erro',
+        resolveError(e),
+        [
+          {
+            text: 'Entendi',
+            style: 'cancel'
+          }
+        ]
+      );
+    }
+  }
 
   return {
     appointments,
+    cancelAppointment,
     fetchAppointments
   };
 };

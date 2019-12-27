@@ -9,12 +9,15 @@ export const Container = styled.View`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+
+  opacity: ${props => (props.past ? 0.6 : 1)};
 `;
 
 export const Left = styled.View`
   flex-direction: row;
-  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
 `;
 
 export const Info = styled.View`

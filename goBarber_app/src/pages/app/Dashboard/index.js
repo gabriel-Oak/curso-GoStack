@@ -7,12 +7,12 @@ import Appointment from '~/shared/components/Appointment';
 import { DashboardHooks } from './hooks';
 
 const Dashboard = () => {
-  const { appointments, fetchAppointments } = DashboardHooks();
-  
+  const { appointments, fetchAppointments, cancelAppointment } = DashboardHooks();
+
   useEffect(() => {
     fetchAppointments();
   }, []);
-  
+
   return (
     <Background>
       <Container>
@@ -21,9 +21,9 @@ const Dashboard = () => {
 
         <List
           data={appointments}
-          keyExtractor={item => String(item)}
+          keyExtractor={item => String(item.id)}
           renderItem={({ item }) => (
-            <Appointment />
+            <Appointment {...item} cancel={cancelAppointment} />
           )}
         />
 
