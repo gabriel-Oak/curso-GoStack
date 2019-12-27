@@ -8,20 +8,7 @@ class Appointment extends Model {
     static load(sequelize: Sequelize) {
         this.init({
             date: DataTypes.DATE,
-            canceled_at: DataTypes.DATE,
-            // past: {
-            //     type: DataTypes.VIRTUAL(DataTypes.BOOLEAN, ['date']),
-            //     get: () => {
-            //         console.log(Object.keys(this.fieldAttributeMap));
-            //         // console.log((this.rawAttributes.date));
-
-            //         return isBefore(new Date(), new Date());
-            //     }
-            // },
-            // cancelable: {
-            //     type: DataTypes.VIRTUAL(DataTypes.BOOLEAN, ['date']),
-            //     get: () => isBefore(new Date(), subHours(new Date(), 2))
-            // }
+            canceled_at: DataTypes.DATE
         }, {
             sequelize,
             modelName: 'appointment'
@@ -33,6 +20,14 @@ class Appointment extends Model {
 
                 item.dataValues.past = isBefore(date, new Date());
                 item.dataValues.cancelable = isBefore(new Date(), subHours(date, 2))
+
+                if (item.dataValues.provider.avatar) {
+                    item.dataValues.provider.avatar.forEach((avatar: any) => {
+                        const { path } = avatar.dataValues;
+
+                        avatar.dataValues.url = `${process.env.ROOT_URL}/files/${path}`
+                    });
+                }
             });
 
         });

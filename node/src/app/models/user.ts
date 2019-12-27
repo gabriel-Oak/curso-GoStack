@@ -29,7 +29,7 @@ class User extends Model {
             users.forEach(user => {
                 user.dataValues.avatar.forEach((file: any) => {
                     const { path } = file.dataValues;
-                    file.dataValues.url = `${process.env.ROOT_URL}/files/${path}`
+                    file.dataValues.url = `${process.env.ROOT_URL}/files/${path}`;
                 });
 
             });

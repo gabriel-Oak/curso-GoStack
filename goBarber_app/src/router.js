@@ -5,6 +5,7 @@ import SingIn from './pages/sing/SingIn';
 import SingUp from './pages/sing/SingUp';
 
 import Dashboard from './pages/app/Dashboard';
+import Profile from './pages/app/Profile';
 
 const Router = isSigned => createAppContainer(
   createSwitchNavigator(
@@ -18,8 +19,20 @@ const Router = isSigned => createAppContainer(
         }
       }),
       App: createBottomTabNavigator({
-        Dashboard
-      })
+        Dashboard,
+        Profile
+      },
+        {
+          tabBarOptions: {
+            keyboardHidesTabBar: true,
+            activeTintColor: '#fff',
+            inactiveTintColor: 'rgba(255,255,255,0.6)',
+            style: {
+              backgroundColor: '#8b41a8'
+            }
+          }
+        }
+      )
     },
     {
       initialRouteName: isSigned ? 'App' : 'Sing'
