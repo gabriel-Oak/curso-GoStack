@@ -1,6 +1,7 @@
 import { Alert } from 'react-native';
 
 import AuthTypes from './types';
+import UserTypes from '~/store/user/types';
 import api from '~/services/api';
 import resolveError from '~/shared/utils/resolveError';
 
@@ -10,10 +11,18 @@ export const singInRequest = (payload) => async dispatch => {
 
     const { data: { user, token } } = await api.post('session', payload);
 
-    console.log(user);
     if (user.provider) {
       throw new Error('O usuário não pode ser provedor');
     }
+
+    dispatch({
+      type: AuthTypes.SET_TOKEN,
+      token
+    });
+    dispatch({
+      type: UserTypes.SET_USER,
+      user
+    });
 
   } catch (e) {
     Alert.alert(

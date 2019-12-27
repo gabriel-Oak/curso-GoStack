@@ -1,7 +1,7 @@
 import { Platform } from 'react-native';
 import styled from 'styled-components/native';
-import Input from '../../shared/components/Input';
-import Button from '../../shared/components/Button';
+import Input from '~/shared/components/Input';
+import Button from '~/shared/components/Button';
 
 export const Container = styled.KeyboardAvoidingView.attrs({
   enabled: Platform.OS === 'ios',

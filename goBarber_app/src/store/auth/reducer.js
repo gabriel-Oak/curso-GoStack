@@ -1,7 +1,8 @@
 import AuthTypes from "./types";
 
 const INITIAL_STATE = {
-  loading: false
+  loading: false,
+  token: null
 };
 
 const authReducer = (state = INITIAL_STATE, action) => {
@@ -11,6 +12,9 @@ const authReducer = (state = INITIAL_STATE, action) => {
 
     case AuthTypes.COMPLETE:
       return { ...state, loading: false }
+
+    case AuthTypes.SET_TOKEN:
+      return { ...state, token: action.token}
 
     default:
       return state;

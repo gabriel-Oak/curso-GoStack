@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Image } from 'react-native';
 
-import Background from '../../shared/components/Background';
+import Background from '~/shared/components/Background';
 import logo from '~/shared/assets/logo.png';
 import {
   Container,
@@ -11,11 +11,17 @@ import {
   SignLink,
   SignLinkText
 } from './styles';
-import { singInHooks } from './hooks';
+import { singUpHooks } from './hooks';
 
-const SingIn = ({ navigation}) => {
-  const { email, password, handleSubmit, loading } = singInHooks();
-  const passwordRef = useRef();
+const SingUp = props => {
+  const {
+    name,
+    email,
+    password,
+    loading,
+    handleSubmit,
+    navigation
+  } = singUpHooks(props);
 
   return (
     <Background>
@@ -24,6 +30,14 @@ const SingIn = ({ navigation}) => {
         <Image source={logo} />
 
         <Form>
+          <FormInput
+            icon='person-outline'
+            autoCorrect={false}
+            placeholder='Nome completo'
+            returnKeyType='next'
+            {...name}
+          />
+
           <FormInput
             icon='mail-outline'
             keyboardType='email-address'
@@ -38,9 +52,7 @@ const SingIn = ({ navigation}) => {
             icon='lock-outline'
             secureTextEntry
             placeholder='Sua senha super secreta'
-            ref={passwordRef}
             returnKeyType='send'
-            onSubmitEditing={handleSubmit}
             {...password}
           />
 
@@ -49,16 +61,16 @@ const SingIn = ({ navigation}) => {
             loading={loading}
             disabled={loading}
           >
-            Acessar
+            Registrar
           </SubmitButton>
         </Form>
 
-        <SignLink
-          onPress={() => {
-            navigation.navigate('SingUp');
-          }}
-        >
-          <SignLinkText>Criar conta gratuita</SignLinkText>
+        <SignLink onPress={() => {
+          console.log(navigation);
+
+          navigation.navigate('SingIn');
+        }}>
+          <SignLinkText>Já possuo uma conta</SignLinkText>
         </SignLink>
 
       </Container>
@@ -66,4 +78,4 @@ const SingIn = ({ navigation}) => {
   );
 }
 
-export default SingIn;
+export default SingUp;
