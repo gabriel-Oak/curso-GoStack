@@ -14,7 +14,15 @@ class Appointment extends Model {
             modelName: 'appointment'
         });
 
-        this.addHook('afterFind', async (appointments: any[]) => {
+        this.addHook('afterFind', async (appointments: any[] | null) => {
+            if (!appointments) {
+                return
+            }
+
+            if (!appointments.length) {
+                return;
+            }
+
             appointments.forEach(item => {
                 const { date } = item.dataValues;
 

@@ -6,8 +6,8 @@ import pt from 'date-fns/locale/pt';
 
 import { Container, Left, Avatar, Info, Name, Time } from './styles';
 
-const Appointment = ({ provider, date, past, cancelable, cancel }) => {
-
+const Appointment = ({ provider, date, cancelable, id, cancel, ...rest }) => {
+  
   const parsedDate = useMemo(
     () => {
       return formatRelative(parseISO(date), new Date(), {
@@ -19,7 +19,7 @@ const Appointment = ({ provider, date, past, cancelable, cancel }) => {
   );
 
   return (
-    <Container past={past}>
+    <Container {...rest}>
       <Left>
         <Avatar
           source={{
@@ -39,7 +39,7 @@ const Appointment = ({ provider, date, past, cancelable, cancel }) => {
 
       {
         cancelable &&
-        <TouchableOpacity onPress={cancel}>
+        <TouchableOpacity onPress={() => cancel(id)}>
           <Icon name='event-busy' size={20} color='#f64c75' />
         </TouchableOpacity>
       }

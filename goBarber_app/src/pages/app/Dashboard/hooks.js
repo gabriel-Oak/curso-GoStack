@@ -35,27 +35,25 @@ export const DashboardHooks = () => {
 
   const cancelAppointment = async id => {
     try {
-      console.log('data');
+      console.log(id);
 
       const { data } = await api.delete(`appointments/${id}`, {
         headers: {
           authorization: `baerer ${token}`
         }
       });
-      console.log(data);
-      
-      setAppointments([
-        appointments.map(appointment => {
-          if (appointment.id !== id) {
-            return appointment;
-          }
-          return {
-            ...appointment,
-            canceled_at: new Date(),
-            cancelable: false
-          }
-        })
-      ]);
+      const tmp = appointments.map(appointment => {
+        if (appointment.id !== id) {
+          return appointment;
+        }
+        return {
+          ...appointment,
+          canceled_at: new Date,
+          cancelable: false
+        }
+      });
+
+      setAppointments(tmp);
 
     } catch (e) {
       Alert.alert(

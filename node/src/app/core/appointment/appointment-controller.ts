@@ -113,7 +113,6 @@ class AppointmentController {
 
     async delete(req: Request, res: Response) {
         const { userId, id } = req.params;
-        console.log(id);
 
         const appointment: any = await Appointment.findByPk(id, {
             include: [
