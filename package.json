@@ -6,7 +6,7 @@
   "scripts": {
     "prebuild": "cd node && npm install",
     "build": "cd node && npm run build",
-    "start": "cd node && node build/server.js"
+    "start": "cd node && echo 'ole'"
   },
   "repository": {
     "type": "git",
