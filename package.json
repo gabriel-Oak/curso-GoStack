@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prestart": "cd node && yarn install && yarn run build",
-    "start": "cd node && yarn start"
+    "prestart": "cd node && npm install && npm run build",
+    "start": "cd node && npm start"
   },
   "repository": {
     "type": "git",
