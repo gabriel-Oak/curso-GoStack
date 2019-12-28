@@ -1,7 +1,10 @@
 # node
 node_modules
 
-/node/node_modules
-/node/yarn.lock
-/node/yarn-error.log
-/node/src/config/keys.ts
+/**/node_modules
+/**/yarn.lock
+/**/yarn-error.log
+/**/src/config/keys.ts
+
+/**/build/
+/**/coverage/

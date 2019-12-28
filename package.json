@@ -1,0 +1,20 @@
+{
+  "name": "curso-gostack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "cd node && yarn install && yarn run build",
+    "start": "cd node && yarn start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabriel-Oak/curso-GoStack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabriel-Oak/curso-GoStack/issues"
+  },
+  "homepage": "https://github.com/gabriel-Oak/curso-GoStack#readme"
+}

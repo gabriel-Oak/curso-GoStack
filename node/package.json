@@ -8,8 +8,9 @@
         "test": "set NODE_ENV=test&& jest --detectOpenHandles --coverage",
         "dev": "nodemon src/server.ts --ignore tests",
         "queue": "nodemon src/queue.ts",
-        "build": "",
-        "create-migration": "sequelize migrations:create"
+        "build": "sucrase ./src -d build -t typescript,imports",
+        "create-migration": "sequelize migrations:create",
+        "start": "node build/server.js"
     },
     "devDependencies": {
         "@sucrase/jest-plugin": "^2.0.0",
