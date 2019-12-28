@@ -1,1 +1,1 @@
-web: echo 'test'
+web: node node\build\server.js
