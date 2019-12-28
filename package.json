@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prestart": "cd node && npm install && npm run build",
+    "prebuild": "cd node && npm install",
+    "build": "cd node && npm run build",
     "start": "cd node && npm start"
   },
   "repository": {
