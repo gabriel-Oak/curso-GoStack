@@ -11,8 +11,11 @@ import {
   Separator,
   SubmitButton
 } from './styles';
+import { ProfileHooks } from './hooks';
 
 const Profile = () => {
+  const { name, email } = ProfileHooks();
+
   return (
     <Background>
       <Container>
@@ -27,7 +30,7 @@ const Profile = () => {
             autoCorrect={false}
             placeholder='Nome completo'
             returnKeyType='next'
-          // {...name}
+            {...name}
           />
 
           <FormInput
@@ -37,7 +40,7 @@ const Profile = () => {
             autoCapitalize='none'
             placeholder='Digite seu e-mail'
             returnKeyType='next'
-          // {...email}
+            {...email}
           />
 
           <Separator />
