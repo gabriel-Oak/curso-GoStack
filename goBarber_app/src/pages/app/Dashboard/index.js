@@ -5,9 +5,15 @@ import Background from '~/shared/components/Background';
 import { Container, Title, List } from './styles';
 import Appointment from '~/shared/components/Appointment';
 import { DashboardHooks } from './hooks';
+import { ActivityIndicator } from 'react-native';
 
 const Dashboard = () => {
-  const { appointments, fetchAppointments, cancelAppointment } = DashboardHooks();
+  const {
+    appointments,
+    fetchAppointments,
+    cancelAppointment,
+    loading
+  } = DashboardHooks();
 
   useEffect(() => {
     fetchAppointments();
@@ -16,17 +22,23 @@ const Dashboard = () => {
   return (
     <Background>
       <Container>
+        {
+          loading
+            ?
+            <ActivityIndicator size={50} />
+            :
+            <>
+              <Title>Agendamentos</Title>
 
-        <Title>Agendamentos</Title>
-
-        <List
-          data={appointments}
-          keyExtractor={item => String(item.id)}
-          renderItem={({ item }) => (
-            <Appointment {...item} cancel={cancelAppointment} />
-          )}
-        />
-
+              <List
+                data={appointments}
+                keyExtractor={item => String(item.id)}
+                renderItem={({ item }) => (
+                  <Appointment {...item} cancel={cancelAppointment} />
+                )}
+              />
+            </>
+        }
       </Container>
     </Background>
   );

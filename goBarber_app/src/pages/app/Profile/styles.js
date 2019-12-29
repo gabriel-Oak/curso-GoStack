@@ -3,18 +3,19 @@ import styled from 'styled-components/native';
 import Input from '~/shared/components/Input';
 import Button from '~/shared/components/Button';
 
-export const Container = styled.KeyboardAvoidingView.attrs({
+export const Container = styled.SafeAreaView.attrs({
   enabled: Platform.OS === 'ios',
   behavior: 'padding'
 })`
   flex: 1;
   align-items: center;
-  padding: 0 30px;
 `;
 
-export const Form = styled.ScrollView`
+export const Form = styled.ScrollView.attrs({
+  contentContainerStyle: {padding: 30}
+})`
   align-self: stretch;
-  margin-top: 50px;
+  /* padding: 30px; */
 `;
 
 export const Title = styled.Text`
@@ -30,6 +31,12 @@ export const FormInput = styled(Input)`
 export const SubmitButton = styled(Button)`
   margin-top: 6px;
 `;
+
+export const LogOutButton = styled(Button)`
+  margin-top: 6px;
+  background-color: #f54c75;
+`;
+
 
 export const Separator = styled.View`
   height: 1px;

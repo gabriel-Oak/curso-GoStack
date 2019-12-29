@@ -9,12 +9,22 @@ import {
   Title,
   FormInput,
   Separator,
-  SubmitButton
+  SubmitButton,
+  LogOutButton
 } from './styles';
 import { ProfileHooks } from './hooks';
 
 const Profile = () => {
-  const { name, email } = ProfileHooks();
+  const {
+    name,
+    email,
+    oldPassword,
+    password,
+    confirmPassword,
+    loading,
+    handleSubmmit,
+    handleLogOut
+  } = ProfileHooks();
 
   return (
     <Background>
@@ -49,16 +59,18 @@ const Profile = () => {
             icon='lock-outline'
             secureTextEntry
             placeholder='Sua senha atual'
-            returnKeyType='send'
-          // {...password}
+            returnKeyType='next'
+            autoCapitalize='none'
+            {...oldPassword}
           />
 
           <FormInput
             icon='lock-outline'
             secureTextEntry
             placeholder='Sua nova senha'
-            returnKeyType='send'
-          // {...password}
+            returnKeyType='next'
+            autoCapitalize='none'
+            {...password}
           />
 
           <FormInput
@@ -66,12 +78,22 @@ const Profile = () => {
             secureTextEntry
             placeholder='Confirme sua senha'
             returnKeyType='send'
-          // {...password}
+            autoCapitalize='none'
+            {...confirmPassword}
           />
 
-          <SubmitButton>
+          <SubmitButton
+            onPress={handleSubmmit}
+            loading={loading}
+            disabled={loading}
+          >
             Atualizar perfil
           </SubmitButton>
+
+          <LogOutButton onPress={handleLogOut}>
+            Sair do GoBarber
+          </LogOutButton>
+
         </Form>
       </Container>
     </Background>

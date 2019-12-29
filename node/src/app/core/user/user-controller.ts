@@ -58,11 +58,14 @@ class UserController {
             ]
         });
 
+        const { name, provider } = await user.update(req.body);
+
         return res.json({
             id: userId,
-            name: user.name,
-            email: user.email,
-            avatar: user.avatar
+            name,
+            email,
+            avatar: user.avatar,
+            provider: provider
         });
 
     }

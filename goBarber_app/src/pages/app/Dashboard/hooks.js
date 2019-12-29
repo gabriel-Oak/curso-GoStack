@@ -8,9 +8,12 @@ import resolveError from '~/shared/utils/resolveError';
 export const DashboardHooks = () => {
   const token = useSelector(state => state.authReducer.token);
   const [appointments, setAppointments] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const fetchAppointments = async () => {
     try {
+      setLoading(true);
+
       const { data } = await api.get('appointments', {
         headers: {
           authorization: `baerer ${token}`
@@ -30,13 +33,14 @@ export const DashboardHooks = () => {
           }
         ]
       );
+    } finally {
+      setLoading(false);
     }
   }
 
   const cancelAppointment = async id => {
     try {
-      console.log(id);
-
+      
       const { data } = await api.delete(`appointments/${id}`, {
         headers: {
           authorization: `baerer ${token}`
@@ -72,6 +76,7 @@ export const DashboardHooks = () => {
   return {
     appointments,
     cancelAppointment,
-    fetchAppointments
+    fetchAppointments,
+    loading
   };
 };
