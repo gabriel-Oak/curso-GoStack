@@ -12,10 +12,12 @@ export const Container = styled.SafeAreaView.attrs({
 `;
 
 export const Form = styled.ScrollView.attrs({
-  contentContainerStyle: {padding: 30}
+  contentContainerStyle: {
+    paddingVertical: 30,
+    paddingHorizontal: 20
+  }
 })`
   align-self: stretch;
-  /* padding: 30px; */
 `;
 
 export const Title = styled.Text`

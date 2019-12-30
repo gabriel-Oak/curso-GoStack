@@ -14,12 +14,13 @@ export const Avatar = styled.Image`
   height: 64px;
   margin-bottom: 12px;
   border-radius: 32px;
-  border: 1px solid #7159c1;
+  border: 1px #7159c1;
 `;
 
 export const Name = styled.Text.attrs({
   numberOfLines: 1
 })`
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
 `;

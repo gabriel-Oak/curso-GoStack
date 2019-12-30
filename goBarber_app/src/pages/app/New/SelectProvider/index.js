@@ -34,9 +34,3 @@ SelectProvider.navigationOptions = ({ navigation: { navigate } }) => ({
 });
 
 export default SelectProvider;
-
-const teste = StyleSheet.create({
-  List: {
-    justifyContent: "space-around"
-  }
-});
