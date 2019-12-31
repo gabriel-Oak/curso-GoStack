@@ -6,17 +6,18 @@ import Background from '~/shared/components/Background';
 import Provider from '~/shared/components/Provider';
 import { Container, List } from './styles';
 
-const data = [1, 2, 3, 4, 5, 6,7,8,9,10, 11];
+const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
-const SelectProvider = () => {
+const SelectProvider = ({ navigation }) => {
+  navigation.navigate('SelectDate', { id: 11 });
   return (
     <Background>
       <Container>
-      <List
-        data={data}
-        keyExtractor={item => item}
-        renderItem={({ item }) => (<Provider {...item} />)}
-      />
+        <List
+          data={data}
+          keyExtractor={item => item}
+          renderItem={({ item }) => (<Provider {...item} />)}
+        />
       </Container>
     </Background>
   );
