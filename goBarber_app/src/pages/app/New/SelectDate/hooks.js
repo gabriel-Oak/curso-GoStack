@@ -13,9 +13,11 @@ export const SelectDateHooks = () => {
   }
 
   return {
-    time,
-    changeDate,
-    visible,
-    setVisible
+    datePicker: {
+      time,
+      changeDate,
+      visible,
+      setVisible
+    }
   };
 }
