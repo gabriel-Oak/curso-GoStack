@@ -1,22 +1,42 @@
-import React from 'react';
-import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
+import React, { useEffect } from 'react';
+import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Background from '~/shared/components/Background';
 import Provider from '~/shared/components/Provider';
-import { Container, List } from './styles';
+import { Container, List, Loading } from './styles';
+import { SelecProviderHooks } from './hooks';
 
-const data = [1, 2, 3, 4, 5, 6,7,8,9,10, 11];
+const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
-const SelectProvider = () => {
+const SelectProvider = props => {
+  const {
+    loading,
+    providers,
+    fetchProviders,
+    selectProvider
+  } = SelecProviderHooks(props);
+
+  useEffect(() => {
+    fetchProviders()
+  }, []);
+
   return (
     <Background>
       <Container>
-      <List
-        data={data}
-        keyExtractor={item => item}
-        renderItem={({ item }) => (<Provider {...item} />)}
-      />
+        {
+          loading
+            ?
+            <Loading />
+            :
+            <List
+              data={providers}
+              keyExtractor={item => item.id}
+              renderItem={({ item }) => (
+                <Provider {...item} selectProvider={selectProvider} />
+              )}
+            />
+        }
       </Container>
     </Background>
   );
