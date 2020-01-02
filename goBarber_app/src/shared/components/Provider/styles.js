@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 
-export const Container = styled.View`
+export const Container = styled.TouchableOpacity`
   border-radius: 5px;
   background-color: #fff;
   margin: 8px;
@@ -14,7 +14,8 @@ export const Avatar = styled.Image`
   height: 64px;
   margin-bottom: 12px;
   border-radius: 32px;
-  border: 1px #7159c1;
+  border-width: 1px;
+  border-color: #7159c1;
 `;
 
 export const Name = styled.Text.attrs({

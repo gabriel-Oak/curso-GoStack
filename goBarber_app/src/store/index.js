@@ -15,6 +15,7 @@ const reducers = combineReducers({
 });
 
 const persistConfig = {
+  timeout: 50000,
   key: 'gobarber',
   storage: AsyncStorage,
   whitelist: ['authReducer', 'userReducer']
