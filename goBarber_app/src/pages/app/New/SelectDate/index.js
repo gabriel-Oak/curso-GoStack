@@ -13,7 +13,8 @@ const SelectDate = ({ navigation }) => {
     datePicker,
     fetchAvailability,
     loading,
-    availability
+    availability,
+    selectTime
   } = SelectDateHooks(navigation);
 
   useEffect(() => {
@@ -29,6 +30,7 @@ const SelectDate = ({ navigation }) => {
         <Availability
           loading={loading}
           availability={availability}
+          selectTime={selectTime}
         />
 
       </Container>

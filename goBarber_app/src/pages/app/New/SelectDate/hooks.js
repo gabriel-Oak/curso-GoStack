@@ -4,7 +4,8 @@ import { Alert } from "react-native";
 import resolveError from '~/shared/utils/resolveError';
 import api from "~/services/api";
 
-export const SelectDateHooks = ({ state: { params: { id } } }) => {
+export const SelectDateHooks = (navigation) => {
+  const { state: { params: { provider } } } = navigation;
   const [time, setTime] = useState(new Date().getTime());
   const [availability, setAvailability] = useState([]);
   const [visible, setVisible] = useState(false);
@@ -23,7 +24,7 @@ export const SelectDateHooks = ({ state: { params: { id } } }) => {
     try {
       setLoading(true);
 
-      const { data: { available } } = await api.get(`providers/${id}/available?date=${time}`);
+      const { data: { available } } = await api.get(`providers/${provider.id}/available?date=${time}`);
 
       setAvailability(available);
 
@@ -43,6 +44,13 @@ export const SelectDateHooks = ({ state: { params: { id } } }) => {
     }
   }
 
+  const selectTime = timeItem => {
+    navigation.navigate('Confirm', {
+      provider,
+      timeItem
+    });
+  }
+
   return {
     datePicker: {
       time,
@@ -52,6 +60,7 @@ export const SelectDateHooks = ({ state: { params: { id } } }) => {
     },
     fetchAvailability,
     availability,
+    selectTime,
     loading
   };
 }

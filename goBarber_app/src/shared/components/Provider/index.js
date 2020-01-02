@@ -1,19 +1,19 @@
 import React from 'react'
 import { Container, Avatar, Name } from './styles';
 
-const Provider = ({ name, avatar, id, selectProvider }) => {
+const Provider = provider => {
   return (
     <Container
       onPress={() => {     
-        selectProvider(id);
+        selectProvider(provider);
       }}
     >
       <Avatar source={{
-        uri: avatar.length
-          ? `http://192.168.10.127:3001/files/${avatar[0].path}`
-          : `https://api.adorable.io/avatar/50/${name}.png`
+        uri: provider.avatar.length
+          ? `http://192.168.10.127:3000/files/${provider.avatar[0].path}`
+          : `https://api.adorable.io/avatar/50/${provider.name}.png`
       }} />
-      <Name>{name}</Name>
+      <Name>{provider.name}</Name>
     </Container>
   );
 }

@@ -89,8 +89,9 @@ class ProviderController {
                     })
             }
         });
+        console.log({ available });
 
-        return res.json(available);
+        return res.json({ available });
     }
 
 }

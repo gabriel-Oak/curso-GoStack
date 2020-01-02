@@ -32,7 +32,7 @@ const SelectProvider = props => {
               keyExtractor={item => item.id}
               renderItem={({ item }) => (
                 <Provider
-                  {...item}
+                  provider={item}
                   selectProvider={selectProvider}
                 />
               )}

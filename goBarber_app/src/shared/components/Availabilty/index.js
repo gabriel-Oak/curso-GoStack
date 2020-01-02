@@ -3,9 +3,7 @@ import { ActivityIndicator, Text } from 'react-native';
 
 import { Container, List, ListItem, ItemText } from './styles';
 
-const Availability = ({ loading, availability }) => {
-  console.log(availability);
-
+const Availability = ({ loading, availability, selectTime }) => {
   return (
     <Container>
       {
@@ -17,7 +15,10 @@ const Availability = ({ loading, availability }) => {
             data={availability}
             keyExtractor={item => item.time}
             renderItem={({item}) => (
-              <ListItem disabled={!item.available}>
+              <ListItem 
+                disabled={!item.available}
+                onPress={selectTime}
+              >
                 <ItemText>{item.time}</ItemText>
               </ListItem>
             )}
