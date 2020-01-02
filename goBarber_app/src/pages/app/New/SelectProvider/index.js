@@ -7,8 +7,6 @@ import Provider from '~/shared/components/Provider';
 import { Container, List, Loading } from './styles';
 import { SelecProviderHooks } from './hooks';
 
-const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-
 const SelectProvider = props => {
   const {
     loading,
