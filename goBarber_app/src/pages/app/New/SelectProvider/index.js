@@ -31,7 +31,10 @@ const SelectProvider = props => {
               data={providers}
               keyExtractor={item => item.id}
               renderItem={({ item }) => (
-                <Provider {...item} selectProvider={selectProvider} />
+                <Provider
+                  {...item}
+                  selectProvider={selectProvider}
+                />
               )}
             />
         }

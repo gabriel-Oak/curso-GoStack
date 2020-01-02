@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { Alert } from "react-native";
 import { useSelector } from "react-redux";
 
 import api from '~/services/api';
+import resolveError from '~/shared/utils/resolveError';
 
 export const SelecProviderHooks = ({ navigation: { navigate } }) => {
   const token = useSelector(state => state.authReducer.token);
@@ -21,7 +23,16 @@ export const SelecProviderHooks = ({ navigation: { navigate } }) => {
 
       setProviders(data);
     } catch (e) {
-
+      Alert.alert(
+        'Erro',
+        resolveError(e),
+        [
+          {
+            text: 'Entendi',
+            style: 'cancel'
+          }
+        ]
+      );
     } finally {
       setLoading(false);
     }

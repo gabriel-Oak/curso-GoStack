@@ -9,7 +9,7 @@ import { DateButton, DateText } from './styles';
 const DatePicker = ({ setVisible, visible, time, changeDate }) => {
 
   const parsedTime = useMemo(() => (
-    format(time, "dd 'de' MMMM 'de' yyyy", { locale: pt })
+    format(new Date(time), "dd 'de' MMMM 'de' yyyy", { locale: pt })
   ), [time]);
 
   return (
@@ -34,7 +34,7 @@ const DatePicker = ({ setVisible, visible, time, changeDate }) => {
           <DateTimePicker
             value={time}
             mode='date'
-            display='spinner'
+            display='default'
             onChange={changeDate}
             minimumDate={new Date()}
 

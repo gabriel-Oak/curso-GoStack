@@ -9,6 +9,7 @@ export const DateButton = styled.TouchableOpacity`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  margin: 0 20px;
 `;
 
 export const DateText = styled.Text`
