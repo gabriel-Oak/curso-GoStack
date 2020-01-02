@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { withNavigationFocus } from 'react-navigation';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Background from '~/shared/components/Background';
@@ -7,7 +8,7 @@ import Appointment from '~/shared/components/Appointment';
 import { DashboardHooks } from './hooks';
 import { ActivityIndicator } from 'react-native';
 
-const Dashboard = () => {
+const Dashboard = ({ isFocused }) => {
   const {
     appointments,
     fetchAppointments,
@@ -16,8 +17,10 @@ const Dashboard = () => {
   } = DashboardHooks();
 
   useEffect(() => {
-    fetchAppointments();
-  }, []);
+    if (isFocused) {
+      fetchAppointments();
+    }
+  }, [isFocused]);
 
   return (
     <Background>
@@ -51,4 +54,4 @@ Dashboard.navigationOptions = {
   )
 };
 
-export default Dashboard;
+export default withNavigationFocus(Dashboard);

@@ -3,12 +3,14 @@ import { Alert } from "react-native";
 
 import resolveError from '~/shared/utils/resolveError';
 
-export const ConfirmHooks = navigation => {
+export const ConfirmHooks = ({ navigate }) => {
   const [loading, setLoading] = useState(false);
 
   const handleConfirm = async () => {
     try {
       setLoading(true);
+
+      // navigate('Dashboard');
     } catch (e) {
       Alert.alert(
         'Erro',

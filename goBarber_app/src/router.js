@@ -23,6 +23,7 @@ const Router = isSigned => createAppContainer(
       New,
       Profile
     }, {
+      resetOnBlur: true,
       tabBarOptions: {
         keyboardHidesTabBar: true,
         activeTintColor: '#fff',
