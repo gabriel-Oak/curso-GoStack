@@ -12,7 +12,6 @@ import { ConfirmHooks } from './hooks';
 const Confirm = ({ navigation }) => {
   const { state: { params: { timeItem, provider } } } = navigation;
   const { loading, handleConfirm } = ConfirmHooks(navigation);
-  console.log(timeItem);
 
   const parsedTime = useMemo(
     () => {
