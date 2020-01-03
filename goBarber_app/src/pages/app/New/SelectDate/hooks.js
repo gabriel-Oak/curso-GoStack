@@ -29,6 +29,8 @@ export const SelectDateHooks = (navigation) => {
       setAvailability(available);
 
     } catch (e) {
+      console.log(e);
+      
       Alert.alert(
         'Erro',
         resolveError(e),
@@ -44,7 +46,7 @@ export const SelectDateHooks = (navigation) => {
     }
   }
 
-  const selectTime = timeItem => {
+  const selectTime = timeItem => {    
     navigation.navigate('Confirm', {
       provider,
       timeItem

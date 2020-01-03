@@ -70,7 +70,7 @@ class ProviderController {
         const available: any[] = schdule.map(time => {
             const [hour, minute] = time.split(':');
             const value = setSeconds(
-                setMinutes(setHours(+date, +hour), +minute),
+                setMinutes(setHours(+date, +hour + 1), +minute),
                 0
             );
 
@@ -80,7 +80,7 @@ class ProviderController {
                 available:
                     isAfter(value, new Date()) &&
                     !appointments.find(a => {
-                        const hour = new Date(Number(a.get('date'))).getHours() + 2;
+                        const hour = new Date(Number(a.get('date'))).getHours() - 1;
 
                         return format(
                             startOfHour(setHours(Number(a.get('date')), hour)),

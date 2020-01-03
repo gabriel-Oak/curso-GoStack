@@ -38,8 +38,8 @@ export const SelecProviderHooks = ({ navigation: { navigate } }) => {
     }
   }
 
-  const selectProvider = provider => {    
-    navigate('SelectDate', { provicer });
+  const selectProvider = provider => {
+    navigate('SelectDate', { provider });
   }
 
   return {

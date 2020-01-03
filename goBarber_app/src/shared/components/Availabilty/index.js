@@ -14,10 +14,10 @@ const Availability = ({ loading, availability, selectTime }) => {
           <List
             data={availability}
             keyExtractor={item => item.time}
-            renderItem={({item}) => (
-              <ListItem 
+            renderItem={({ item }) => (
+              <ListItem
                 disabled={!item.available}
-                onPress={selectTime}
+                onPress={() => { selectTime(item) }}
               >
                 <ItemText>{item.time}</ItemText>
               </ListItem>

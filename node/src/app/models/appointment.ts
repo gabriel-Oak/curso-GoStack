@@ -29,7 +29,7 @@ class Appointment extends Model {
                 item.dataValues.past = isBefore(date, new Date());
                 item.dataValues.cancelable = isBefore(new Date(), subHours(date, 2))
 
-                if (item.dataValues.provider.avatar) {
+                if (item.dataValues.provider && item.dataValues.provider.avatar) {
                     item.dataValues.provider.avatar.forEach((avatar: any) => {
                         const { path } = avatar.dataValues;
                         avatar.dataValues.url = `${process.env.ROOT_URL}/files/${path}`
