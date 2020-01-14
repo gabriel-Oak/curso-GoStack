@@ -24,7 +24,7 @@ const Appointment = ({ provider, date, cancelable, id, cancel, ...rest }) => {
         <Avatar
           source={{
             uri: provider.avatar[0]
-              ? `http://192.168.10.127:3001/files/${provider.avatar[0].path}`
+              ? `http://192.168.100.3:3000/files/${provider.avatar[0].path}`
               : `https://api.adorable.io/avatar/50/${provider.name}.png`
           }}
         />

@@ -1,4 +1,8 @@
-import express, { Response, Request, NextFunction, ErrorRequestHandler } from 'express';
+import express, {
+    Response,
+    Request, NextFunction,
+    ErrorRequestHandler
+} from 'express';
 import cors from 'cors';
 import path from 'path';
 import 'express-async-errors';

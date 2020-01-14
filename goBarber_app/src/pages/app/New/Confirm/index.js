@@ -30,7 +30,7 @@ const Confirm = ({ navigation }) => {
         <Avatar
           source={{
             uri: provider.avatar.length
-              ? `http://192.168.0.104:3000/files/${provider.avatar[0].path}`
+              ? `http://192.168.100.3:3000/files/${provider.avatar[0].path}`
               : `https://api.adorable.io/avatar/50/${provider.name}.png`
           }}
         />
