@@ -44,7 +44,7 @@
         "@types/jasmine": "^3.4.6",
         "@types/jasminewd2": "^2.0.8",
         "@types/validator": "^10.11.3",
-        "bcrypt": "^3.0.6",
+        "bcrypt": "^5.0.0",
         "bee-queue": "^1.2.2",
         "codelyzer": "^5.1.2",
         "cors": "^2.8.5",
